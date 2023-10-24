@@ -1,10 +1,13 @@
-﻿# ------------ RoundedCorners ----------- #
+﻿# ----------- RoundedCorners ------------ #
 
 from hw import *
 from kandinsky import *
 from bl import *
 
-gamma=pi/2
+from math import pi
+tau   = pi * 2
+gamma = pi / 2
+
 
 class Squircle(Box):
   
@@ -14,6 +17,7 @@ class Squircle(Box):
     #self.absPos(); self.absDim()
   
   def __draw__(self):
+    
     [fill_rect(
       self.absPos()[0]+[0,self.radius][axis],
       self.absPos()[1]+[self.radius,0][axis],
@@ -21,16 +25,17 @@ class Squircle(Box):
       self.absDim()[1]-[2*self.radius,0][axis],
       self.bg,
     ) for axis in range(2)]
+    
     [fill_rect(
-      round( self.absPos()[0] + self.absDim()[0]*(axis>2) + [1,-1][axis>2]*self.radius ),
-      round( self.absPos()[1] + self.absDim()[1]*(axis+1>2) + [1,-1][axis+1>2]*self.radius ),
-      round( sin(gamma/2) * self.radius ) * [-1,1][axis>2],
-      round( sin(gamma/2) * self.radius ) * [-1,1][axis>2],
+      round( self.absPos()[0] + self.absDim()[0]*(axis%2) + [1,-1][axis%2]*self.radius ),
+      round( self.absPos()[1] + self.absDim()[1]*(axis%2 ^ axis>=2) + [1,-1][axis%2 ^ axis>=2]*self.radius ),
+      round( sin(gamma/2) * self.radius ) * [-1,1][axis%2],
+      round( sin(gamma/2) * self.radius ) * [-1,1][axis%2 ^ axis>=2],
       self.bg,
     ) for axis in range(4)]
 
 
-
+"""
 TREE=(
   Box(
   dim=[scrW,scrH],
@@ -66,3 +71,4 @@ while FRAME<666:
   
   
   
+"""
