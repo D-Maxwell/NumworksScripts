@@ -1,0 +1,38 @@
+var scripts = JSON.parse(`{
+  "bl":{
+    "title":"BoxLayout",
+    "extends":"",
+    "description":"",
+    "type":"module"
+  },
+  "rc":{
+    "title":"RoundedCorners",
+    "extends":"bl",
+    "description":"Still missing antialiasing, and the soon to be implemented diminishing recursive algorithm to fill in the literal gaps.",
+    "type":"extension"
+  },
+  "pv":{
+    "title":"PaletteVisualizer",
+    "extends":"",
+    "description":"",
+    "type":"utility"
+  },
+  "km":{
+    "title":"KeyManager",
+    "extends":"",
+    "description":"",
+    "type":"module"
+  },
+  "cmd":{
+    "title":"CMD todo",
+    "extends":"",
+    "description":"got wiped ;-; will feature basic file management commands and will act as an interface to a [bl] file management application. Eventually.",
+    "type":""
+  },
+  "hw":{
+    "title":"Hardware",
+    "extends":"",
+    "description":"Contains relevant NumWorks devices hardware-related information.",
+    "type":"data"
+  }
+}`)
