@@ -20,7 +20,17 @@ for (let script in scripts) {
       <h2>${scripts[script]["title"]}</h2>
       <p>${scripts[script]["description"]}</p>
 
-      <a href="https://raw.githubusercontent.com/D-Maxwell/NumworksScripts/main/${script}.py" download>DOWNLOAD</a>
+      <span class="action-label">Explore Projects Made Using This Script</span>
+      <div class="action-chips">
+        <i data-icon="github"></i>
+        <i data-icon="download"></i>
+        <i data-icon="projects"></i>
+        <i data-icon"raw ? top right clickable pseudo element ??"></i>
+      </div>
+
+      <a download href="https://raw.githubusercontent.com/D-Maxwell/NumworksScripts/main/${script}.py">
+        <i style="background-image: url('assets/icons/download.png')"></i>
+      </a>
     </div>
   `)
 }
