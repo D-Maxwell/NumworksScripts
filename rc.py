@@ -18,6 +18,8 @@ class Squircle(Box):
   
   def __draw__(self):
     
+    super().__draw__()
+    
     [fill_rect(
       self.absPos()[0]+[0,self.radius][axis],
       self.absPos()[1]+[self.radius,0][axis],

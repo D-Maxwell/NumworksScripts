@@ -7,7 +7,7 @@ def lmap(func,*args):
     if type(arg) is list
   ])
   for n,number in enumerate(args):
-    if type(number) is list: continue
+    if type(number) in [list,tuple]: continue
     args[n]=[number]*max_length
   return list(map(func,*args))
 

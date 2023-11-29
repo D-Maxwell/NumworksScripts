@@ -5,7 +5,9 @@ cliWH = cliW, cliH = 6, 10
 chrWH = chrW, chrH = 10, 18
 
 
-
+def sgn(signed_val):
+  #return signed_val/abs(signed_val)
+  return +1 if signed_val >= 0 else -1
 
 
 
