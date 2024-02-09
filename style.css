@@ -178,7 +178,7 @@ body{
       background: var(--backdrop);
       background-position: var(--background-position-x) var(--background-position-y);
       background-repeat: no-repeat;
-      background-attachment: fixed;
+/*       background-attachment: fixed; */
       /* background-size: 100vmax; */
 
       filter: blur(4px);
