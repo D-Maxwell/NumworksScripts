@@ -34,5 +34,11 @@ var scripts = JSON.parse(`{
     "extends":"",
     "description":"Contains relevant NumWorks devices hardware-related information.",
     "type":"data"
+  },
+  "bx":{
+    "title":"Boxed",
+    "extends":"",
+    "description":"",
+    "type":"module"
   }
 }`)
