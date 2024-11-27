@@ -14,12 +14,12 @@ for (let script in scripts) {
   $('.scripts').append(`
     <div data-script="${script}"
     style="--backdrop:url('assets/pictures/${script}.jpg')"
-
+    
     onmousemove="pan(event,this)"
     >
       <h2>${scripts[script]["title"]}</h2>
       <p>${scripts[script]["description"]}</p>
-
+      
       <span class="action-label">Explore Projects Made Using This Script</span>
       <div class="action-chips">
         <i data-icon="github"></i>
@@ -27,7 +27,7 @@ for (let script in scripts) {
         <i data-icon="projects"></i>
         <i data-icon"raw ? top right clickable pseudo element ??"></i>
       </div>
-
+      
       <a download href="https://raw.githubusercontent.com/D-Maxwell/NumworksScripts/main/${script}.py">
         <i style="background-image: url('assets/icons/download.png')"></i>
       </a>
@@ -36,44 +36,24 @@ for (let script in scripts) {
 }
 
 
-// var previousMousePos = []
-// var previousElement = ''
 
-function pan(event,element){
-  // if (element != previousElement) {
-  //   previousMousePos = []
-  //   previousElement = element
-  // }
-
+pan = (event, element) => {
+  
   let elementRect = element.getClientRects()[0]
   elementPos = [elementRect.x, elementRect.y]
   elementDim = [elementRect.width, elementRect.height]
-
-  // console.log(previousElement, element);
-  //
-  // if (previousMousePos.length == 0) {
-  //   previousMousePos = elementPos
-  // }
-
+  
   let mousePos = [event.clientX, event.clientY]
-
-
-  // let movement = [
-  //   mousePos[0] - previousMousePos[0],
-  //   mousePos[1] - previousMousePos[1]
-  // ]
-
-
-  $(element).css('--background-position-x',
-    (mousePos[0] - elementPos[0]) / elementDim[0] * (1/12) * 100 + "%"
-    // parseInt($(element).css('--background-position-x')) + movement[0] + "px"
+  
+  coverage = parseInt($(element).css('--_overflow')) / 100;
+  
+  $(element).css('--offset-x',
+    ((mousePos[0] - elementPos[0]) / elementDim[0] * 2 - 1) * coverage / (coverage * 2 + 1) * 100 + "%"
   )
-  $(element).css('--background-position-y',
-    (mousePos[1] - elementPos[1]) / elementDim[1] * (1/12) * 100 + "%"
-    // parseInt($(element).css('--background-position-y')) + movement[1] + "px"
+  $(element).css('--offset-y',
+    ((mousePos[1] - elementPos[1]) / elementDim[1] * 2 - 1) * coverage / (coverage * 2 + 1) * 100 + "%"
   )
-
-  previousMousePos = mousePos
+  
 }
 
 // <h5>${script}</h5>
